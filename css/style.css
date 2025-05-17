@@ -58,6 +58,39 @@ a {
     color: var(--main-bg-color)
 }
 
+/****** Header ***********/
+#appbar {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+}
+.logo {
+    display: flex;
+    width: 160px;
+    align-items: center;
+    justify-content: center;
+}
+.logo img {
+    width: 60px;
+    margin: auto;
+}
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+nav ul li {
+    padding: 5px;    
+}
+nav li:hover {
+    color: var(--main-color);
+    border-top: 3px solid #0065FC;
+}
+
+
 /****** Hebergements And Populaires ***********/
 .hebergements-and-populaires {
     display: flex;

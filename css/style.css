@@ -15,7 +15,9 @@
 
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     margin: 0;
 }
 
@@ -30,10 +32,14 @@ a {
     color: inherit;
     text-decoration: none;
 }
+h1 { 
+    margin:0;
+}
 
 /****** Header ***********/
 header {
     height: 79px;
+    margin-bottom: 20px;
 }
 
 nav {
@@ -43,30 +49,125 @@ nav {
 
 header img {
     height: 19px;
-    margin-top: 30px;
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-bottom: 30px;
+    margin: 30px 0px;
 }
 
-header ul {
+nav ul {
     list-style-type: none;
     display: flex;
+    margin: 0;
+    padding: 0 50px; /* resolution espace entre les menus */
+    gap: 68px;
+
 }
 
-.menu {
-    margin-left: 50px;
-    margin-right: 50px;
-    border-top: 2px solid transparent;
+nav ul li {
+    border-top: 2px solid transparent; /*résolution décalage du texte*/
     padding-top: 14px;
-    list-style-type: none;
 }
 
-.menu:hover {
+nav ul li:hover {
     color: var(--main-color);
     border-top: 2px solid var(--main-color);
 }
 
+/****** filters ***********/
+
+.search{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.search-localisation{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    height: 49px;
+    width: 377px;
+}
+.map-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main-bg-color);
+    padding: 0 20px 0 20px;
+    border-radius: 15px 0 0 15px;
+}
+input#localisation {
+    border: 0;
+    border-top: 2px solid var(--main-bg-color);
+    border-bottom: 2px solid var(--main-bg-color);
+    z-index: 2; /*tentative de faire repasser la bordure au dessus*/
+}
+input#localisation::placeholder{
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px; /* correction police placeholder */
+    font-weight: bold;
+    color: black;
+}
+.search-button {
+    background-color: #0065FC;
+    color: white;
+    padding: 0 20px 0 20px;
+    border-radius: 0 15px 15px 0;
+}
+.search-button:hover {
+    cursor: pointer;
+}
+.loupe {
+    display: none; /*affiche seulement pour smartphones*/
+    height: 55px; /* compense largeur ombre*/
+    z-index: 1;
+}
+.search-result {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+.search-result img {
+    width: 24px;
+    height: 24px;
+}
+#filters {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 50px;
+    gap: 15px;
+}
+.btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 10px;
+    background-color: white;
+    border: 2px solid #D9D9D9;
+    border-radius: 20px;
+    padding: 12px 16px;
+    cursor: pointer;
+    font-size: 16px;  /* correction police button */
+    font-weight: bold;
+}
+.btn:hover{
+    background-color: var(--filter-bg-color);
+}
+.btn:focus{
+    background-color: var(--filter-bg-color);
+}
+.btn:active{
+    border: 2px solid var(--main-color)
+}
+.btn img{
+    height: 22px;
+    width: 22px;
+}
+
+/****** Cards ***********/
 .section-title {
     margin: 0;
     font-size: 22px;
@@ -110,9 +211,58 @@ header ul {
 }
 
 /****** Hebergements ***********/
-.hebergements {
+#hebergements {
     width: 65%;
 }
+#hebergements h2 {
+    display: flex;
+    margin-bottom: 33px;
+}
+.hebergements-cards {
+    display: flex;
+    flex-wrap: wrap;
+    align-items:center;
+    gap: 30px;
+}
+
+.hebergements-cards .card {
+    width: 268px;
+    height: 207px;
+}
+
+.hebergements-cards img {
+    width: 100%;
+    height: 124px; 
+    /* object-fit: cover déjà sur .card*/
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.hebergements-cards .card-content {
+    padding-left: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.hebergements-cards .card-title {
+    margin-top: 10px;
+    margin-bottom: 4px;
+}
+
+.hebergements-cards .card-subtitle {
+    margin: 0;
+}
+
+.hebergements-cards .card-rating {
+    margin-bottom: 5px;
+}
+
+.hebergements h3 {
+    margin-top: 33px
+}
+
+
 
 /****** Populaires ***********/
 .populaires {
@@ -130,6 +280,7 @@ header ul {
     margin-top: 33px;
 }
 
+/* object-fit: cover déjà sur .card*/
 .populaires-cards img {
     width: 33%;
     height: 136px;
@@ -160,6 +311,61 @@ header ul {
 }
 
 
+/****** Activités ***********/
+
+#activities{
+    display: flex;
+    flex-direction: column;
+    margin: 30px 30px 60px 30px;
+}
+.activities-gallery{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+.activity-card{
+    display: flex;
+    flex-direction: column;
+    width: 297.5px;
+    height: 439px;
+    border-radius: 30px;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+    /* reprise de la propriété filter drop-shadow sur .card */
+}
+.activity-card img{
+    border-radius: 30px 30px 0 0;
+    height: 90%;
+    /* object-fit: cover; n'a aucun effet? */
+}
+.activity-card h3{
+    padding-left: 25px;
+}
+
+
+
+/****** Footer ***********/
+footer{
+    width: 100%;
+    max-width: 1440px;
+    padding: 0 50px 0 50px;
+    box-sizing: border-box;
+}
+footer section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: var(--main-bg-color);
+    padding-bottom: 30px;
+}
+/*Peut-on recréer la marge à gauche et à droite sans rajouter de conteneur html?*/
+footer section div {
+    display: flex;
+    flex-direction: column;
+    width: 30%; /*peut-on aligner les liens à gauche autrement? */
+    gap: 15px;
+}
 
 
 /* Le code ci-dessous correspond à la version responsive uniquement */
@@ -169,9 +375,11 @@ header ul {
 @media (max-width: 1024px) {
     .hebergements-and-populaires {
         flex-direction: column;
+        flex-direction:column-reverse; /*inverse l'ordre des sections */
+        flex-wrap: wrap;
     }
 
-    .hebergements {
+    #hebergements {
         width: 100%;
     }
 
@@ -197,9 +405,19 @@ header ul {
     .populaires-cards .card-subtitle {
         font-size: 13px;
     }
+    footer section div {
+        width: 80%; /* A REVOIR */
+    }
 }
 
 /* Small devices (phones, less than 768px) */
 @media (max-width: 767.98px) {
     /* ... */
+    .search-button{
+    display: none;
+    }
+    .loupe {
+    display: inline-flex;
+    align-items: stretch;
+    }
 }

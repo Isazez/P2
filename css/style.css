@@ -23,7 +23,7 @@ body {
 
 .main-container {
     width: 100%;
-    max-width: 1440px;
+    max-width: 1440px; /*maximum size for large desktop*/
     padding: 0 50px;
     box-sizing: border-box;
 }
@@ -71,18 +71,18 @@ nav ul li:hover {
     border-top: 2px solid var(--main-color);
 }
 
-/****** filters ***********/
+/****** search ***********/
 
 .search{
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    flex-wrap: wrap;
+    gap: 35px; /* L'espace semble plus important que sur la maquette! */
 }
 .search-localisation{
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    align-items: stretch;
     height: 49px;
     width: 377px;
 }
@@ -95,7 +95,7 @@ nav ul li:hover {
     border-radius: 15px 0 0 15px;
 }
 input#localisation {
-    border: 0;
+    border: 0; /*pourquoi faut-il d'abord la remettre à 0 ? */
     border-top: 2px solid var(--main-bg-color);
     border-bottom: 2px solid var(--main-bg-color);
     z-index: 2; /*tentative de faire repasser la bordure au dessus*/
@@ -110,8 +110,9 @@ input#localisation::placeholder{
 .search-button {
     background-color: #0065FC;
     color: white;
-    padding: 0 20px 0 20px;
+    text-align: center;
     border-radius: 0 15px 15px 0;
+    flex-grow: 1; /*force le bouton recherche à occuper tout l'espace restant du conteneur*/
 }
 .search-button:hover {
     cursor: pointer;
@@ -121,22 +122,15 @@ input#localisation::placeholder{
     height: 55px; /* compense largeur ombre*/
     z-index: 1;
 }
-.search-result {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 10px;
-}
-.search-result img {
-    width: 24px;
-    height: 24px;
-}
+
+/****** filters ***********/
+
 #filters {
     display: flex;
     flex-direction: row;
     align-items: center;
     flex-wrap: wrap;
-    height: 50px;
+    /* height: 50px; conditionner la hauteur posait pb avec le gap des elements de search et search-result se juxtaposait aux filtres à la reduction de l'ecran*/ 
     gap: 15px;
 }
 .btn {
@@ -167,12 +161,19 @@ input#localisation::placeholder{
     width: 22px;
 }
 
-/****** Cards ***********/
-.section-title {
-    margin: 0;
-    font-size: 22px;
+.search-result {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
 }
 
+.search-result img {
+    width: 24px;
+    height: 24px;
+}
+
+/****** Cards ***********/
 .card {
     background-color: white;
     border-radius: 20px;
@@ -186,8 +187,15 @@ input#localisation::placeholder{
 
 .card-title {
     font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 4px;
 }
-
+.card-subtitle {
+    margin: 0;
+}
+.card-rating {
+    margin-bottom: 5px;
+}
 .euro {
     font-weight: 700;
 }
@@ -197,10 +205,23 @@ input#localisation::placeholder{
 }
 
 
+
 /****** Hebergements And Populaires ***********/
+.bloc-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.bloc-title h2 {
+    margin: 0;
+    font-size: 22px;
+}
+
 .hebergements-and-populaires {
     display: flex;
     justify-content: space-between;
+    gap: 40px;
+    margin-top: 35px;
 }
 
 .hebergements-and-populaires section {
@@ -212,22 +233,26 @@ input#localisation::placeholder{
 
 /****** Hebergements ***********/
 #hebergements {
-    width: 65%;
+    width: auto;
 }
-#hebergements h2 {
-    display: flex;
-    margin-bottom: 33px;
-}
+
 .hebergements-cards {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
-    align-items:center;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 30px; /*espace // titre*/
+    margin-bottom: 30px; /*espace // afficher plus*/
     gap: 30px;
 }
 
 .hebergements-cards .card {
-    width: 268px;
+    display: flex;
+    flex-direction: column;
+    width: 268px; /*pb Affiche 2 cards au lieu de 3 sur une ligne --> vient de taille fixe card ou conteneur? */
     height: 207px;
+    padding-bottom: 10px; /* +les 5 de .card --> 15 */
 }
 
 .hebergements-cards img {
@@ -245,42 +270,20 @@ input#localisation::placeholder{
     gap: 8px;
 }
 
-.hebergements-cards .card-title {
-    margin-top: 10px;
-    margin-bottom: 4px;
-}
-
-.hebergements-cards .card-subtitle {
-    margin: 0;
-}
-
-.hebergements-cards .card-rating {
-    margin-bottom: 5px;
-}
-
-.hebergements h3 {
-    margin-top: 33px
-}
-
-
-
 /****** Populaires ***********/
 .populaires {
     width: 32%;
-}
-
-.populaires-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    min-width: 429px; /*pose pb en media queries*/
 }
 
 .populaires-cards .card {
     display: flex;
-    margin-top: 33px;
+    margin-top: 30px;
+    /*size desktop populaire card*/
+    /* width: 369px; */
+    /* height: 146px; DECALE L'IMAGE*/
 }
 
-/* object-fit: cover déjà sur .card*/
 .populaires-cards img {
     width: 33%;
     height: 136px;
@@ -296,20 +299,6 @@ input#localisation::placeholder{
     justify-content: space-between;
     box-sizing: border-box;
 }
-
-.populaires-cards .card-title {
-    margin-top: 10px;
-    margin-bottom: 4px;
-}
-
-.populaires-cards .card-subtitle {
-    margin: 0;
-}
-
-.populaires-cards .card-rating {
-    margin-bottom: 5px;
-}
-
 
 /****** Activités ***********/
 
@@ -327,7 +316,7 @@ input#localisation::placeholder{
 .activity-card{
     display: flex;
     flex-direction: column;
-    width: 297.5px;
+    width: 297.5px; /* 210.33px dans les components! */
     height: 439px;
     border-radius: 30px;
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
@@ -347,7 +336,7 @@ input#localisation::placeholder{
 /****** Footer ***********/
 footer{
     width: 100%;
-    max-width: 1440px;
+    max-width: 1440px; /*maximum size for large desktop*/
     padding: 0 50px 0 50px;
     box-sizing: border-box;
 }
@@ -394,9 +383,16 @@ footer section div {
         justify-content: space-between;
     }
 
+    .populaires-cards .card {
+        /*size tablet populaire card*/
+        /* width: 275px;
+        height: 146px; */
+    }
+
     .populaires-cards a {
         width: 30%;
     }
+
 
     .populaires-cards .card-title {
         font-size: 14px;
@@ -404,6 +400,10 @@ footer section div {
 
     .populaires-cards .card-subtitle {
         font-size: 13px;
+    }
+    .activity-card{
+        height: 270px ;
+        width: 193.5px ;
     }
     footer section div {
         width: 80%; /* A REVOIR */
@@ -414,10 +414,39 @@ footer section div {
 @media (max-width: 767.98px) {
     /* ... */
     .search-button{
-    display: none;
+        display: none;
     }
     .loupe {
-    display: inline-flex;
-    align-items: stretch;
+        display: inline-flex;
+        align-items: stretch;
     }
+    .hebergements-and-populaires {
+        flex-direction:column; /* ré-réinverse l'ordre...*/
+    }
+    #hebergements {
+
+    }
+    #hebergements-cards {
+        flex-direction: column;
+        width: 100%;
+    }    
+    .populaires-cards {
+        flex-direction: column;
+    }
+    .populaires-cards a {
+        width: 100%;
+        /*size mobile populaire card*/
+        /* width: 335px;
+        height: 146px; */
+    }
+
+    .activity-card{
+        height: 200px ;
+        width: 315px ;
+    }
+
+    footer{
+        flex-direction: column;
+    }
+
 }

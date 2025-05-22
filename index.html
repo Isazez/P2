@@ -36,24 +36,24 @@
 
                 <div>
                     <h1>Trouvez votre hébergement pour des vacances de rêve</h1>
-                    <p>En plein centre-ville ou en pleine nature</p>
+                        <p>En plein centre-ville ou en pleine nature</p>
                 </div>
 
-                <form method="get" action="" class="search-localisation">
-                        <!--<img src="images/icones/map-button.png" alt="map pin image"> autre possibilité image importée de la maquette figma-->
-                        <div class="map-icon"><img src="images/icones/map-icon.png" alt=""></div>
-                        <input type="search" name="search" id="localisation" placeholder="Marseille, France">
-                        <!--<img src="images/icones/search-button.png" alt="search button"> autre possibilité image importée de la maquette figma-->
-                        <div class="search-button"><p><strong>Rechercher</strong></p></div>
-                        <div class="loupe"><img src="images/icones/loupe.svg" alt="loupe de rechercher"></div>
+                <form method="get" action="/action_page.php" class="search-localisation"> <!--attribut action à remplacer par page définitive-->
+                    <div class="map-icon"><i class="fa-solid fa-location-dot" style="font-size:20px;color:black;"></i></div> 
+                    <!-- ref icone fontawesome non précisée dans maquette, nom déduit, style ajouté -> pourquoi ne fonctionne pas dans le CSS directement ? -->
+                    <input type="search" name="search" id="localisation" placeholder="Marseille, France">
+                    <div class="search-button"><p><strong>Rechercher</strong></p></div>
+                    <div class="loupe"><img src="images/icones/loupe.svg" alt="loupe de rechercher"></div>
                 </form>
 
                 <div id="filters">
-                        <strong>Filtres</strong>
-                        <button class="btn"><img src="images/icones/cash-icon.png" alt="Economic icon">Economique</button>
-                        <button class="btn"><img src="images/icones/person-icon.png" alt="Familial icon">Familiale</button>
-                        <button class="btn"><img src="images/icones/heart-icon.png" alt="romantic icon">Romantique</button>
-                        <button class="btn"><img src="images/icones/fire-icon.png" alt="favorite icon">Nos Pépites</button>
+                    <h2>Filtres</h2> <!-- Ok si H1 et H2 sont au même niveau dans le html? -->
+                        <button class="btn"><i class="fa-solid fa-money-bill-wave"></i>Economique</button>
+                        <button class="btn"><i class="fa-solid fa-person"></i>Familiale</button>
+                        <button class="btn"><i class="fa-solid fa-heart"></i>Romantique</button> 
+                        <!-- ref icone fontawesome non précisée dans maquette, nom déduit-->
+                        <button class="btn"><i class="fa-solid fa-fire"></i>Nos Pépites</button>
                 </div>
 
                 <div class="search-result">
@@ -271,34 +271,33 @@
                     
                 </section>
 
-            </div>
-
+            </div> <!-- fin div hebergements et populaire-->
 
             <div id="activities">
                 <h2>Activités à Marseille</h2> 
                 <div class="activities-gallery">
                     <a href="#">
                         <div class="activity-card">
-                        <img src="./images/activites/reno-laithienne.jpg" alt="photo du vieux port de Marseille">
-                        <h3 class="card-title">Vieux Port</h3>
+                            <img src="./images/activites/reno-laithienne.jpg" alt="photo du vieux port de Marseille">
+                            <h3 class="card-title">Vieux Port</h3>
                         </div>
                     </a>  
                     <a href="#">
                         <div class="activity-card">
-                        <img src="./images/activites/paul-hermann.jpg" alt="photo du Fort de Pomègues">
-                        <h3 class="card-title">Fort de Pomègues</h3>
+                            <img src="./images/activites/paul-hermann.jpg" alt="photo du Fort de Pomègues">
+                            <h3 class="card-title">Fort de Pomègues</h3>
                         </div>
                     </a>  
                     <a href="#">
                         <div class="activity-card">
-                        <img src="./images/activites/kilyan-sockalingum.jpg" alt="photo du Parc National des Calanques">
-                        <h3 class="card-title">Parc National des Calanques</h3>
+                            <img src="./images/activites/kilyan-sockalingum.jpg" alt="photo du Parc National des Calanques">
+                            <h3 class="card-title">Parc National des Calanques</h3>
                         </div>
                     </a>  
                     <a href="#">
                         <div class="activity-card">
-                        <img src="./images/activites/florian-wehde.jpg" alt="photo de Notre Dame de la Notre-Dame-de-la-Garde">
-                        <h3 class="card-title">Notre-Dame-de-la-Garde</h3>
+                            <img src="./images/activites/florian-wehde.jpg" alt="photo de Notre Dame de la Notre-Dame-de-la-Garde">
+                            <h3 class="card-title">Notre-Dame-de-la-Garde</h3>
                         </div>
                     </a>  
                 </div>
@@ -308,11 +307,10 @@
 
     </div> <!-- fin de main container -->
 
-
         <footer>
             <section>
                 <div>
-                    <h3>À propos</h3>
+                    <h3>À propos</h3> <!-- ok titre h3 si pas de h2 avant? -->
                     <a href="#">Fonctionnement du site</a>
                     <a href="#">Conditions générales</a>
                     <a href="#">Données et confidentialité</a>
@@ -325,7 +323,7 @@
                 <div>
                     <h3>Assistance</h3>
                     <a href="#">Centre d'aide</a>
-                    <a href=""">Nous contacter</a>
+                    <a href="#">Nous contacter</a>
                 </div>
             </section>
         </footer>

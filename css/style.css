@@ -21,13 +21,6 @@ body {
     margin: 0;
 }
 
-.main-container {
-    width: 100%;
-    max-width: 1440px; /*maximum size for large desktop*/
-    padding: 0 50px;
-    box-sizing: border-box;
-}
-
 a {
     color: inherit;
     text-decoration: none;
@@ -36,10 +29,15 @@ h1 {
     margin:0;
 }
 
+.main-container {
+    max-width: 1440px; /*maximum size for large desktop*/
+    margin: 0 50px;
+    box-sizing: border-box;
+}
+
 /****** Header ***********/
 header {
     height: 79px;
-    margin-bottom: 20px;
 }
 
 nav {
@@ -77,6 +75,7 @@ nav ul li:hover {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    margin-top: 20px;
     gap: 35px; /* L'espace semble plus important que sur la maquette! */
 }
 .search-localisation{
@@ -233,19 +232,28 @@ input#localisation::placeholder{
 
 /****** Hebergements ***********/
 #hebergements {
-    width: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .hebergements-cards {
     display: flex;
+    justify-content: flex-start; /* !LAISSE ESPACE AUTOUR ET 2 CARDS AU LIEU 3 */
+    /* align-self: stretch; */
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: flex-start;
     align-items: center;
     margin-top: 30px; /*espace // titre*/
     margin-bottom: 30px; /*espace // afficher plus*/
     gap: 30px;
 }
+
+
+
+
+
+
 
 .hebergements-cards .card {
     display: flex;
@@ -254,6 +262,13 @@ input#localisation::placeholder{
     height: 207px;
     padding-bottom: 10px; /* +les 5 de .card --> 15 */
 }
+
+
+
+
+
+
+
 
 .hebergements-cards img {
     width: 100%;
@@ -305,7 +320,8 @@ input#localisation::placeholder{
 #activities{
     display: flex;
     flex-direction: column;
-    margin: 30px 30px 60px 30px;
+    margin-top: 35px;
+    padding: 30px;
 }
 .activities-gallery{
     display: flex;
@@ -325,10 +341,10 @@ input#localisation::placeholder{
 .activity-card img{
     border-radius: 30px 30px 0 0;
     height: 90%;
-    /* object-fit: cover; n'a aucun effet? */
+    object-fit:cover;
 }
 .activity-card h3{
-    padding-left: 25px;
+    padding: 20px 19px 20px 19px;
 }
 
 
@@ -336,24 +352,27 @@ input#localisation::placeholder{
 /****** Footer ***********/
 footer{
     width: 100%;
-    max-width: 1440px; /*maximum size for large desktop*/
-    padding: 0 50px 0 50px;
-    box-sizing: border-box;
+    max-width: 1440px; /*maximum size for large desktop*/;
+    margin-top: 35px;
+    /*espace conteneur activités*/
 }
 footer section{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    justify-content: space-between;
     background-color: var(--main-bg-color);
-    padding-bottom: 30px;
+    margin: 0 50px; /*marge autour zone grise*/
+    padding: 30px; /*espace autour des colonnes de texte*/
 }
 /*Peut-on recréer la marge à gauche et à droite sans rajouter de conteneur html?*/
 footer section div {
     display: flex;
     flex-direction: column;
-    width: 30%; /*peut-on aligner les liens à gauche autrement? */
-    gap: 15px;
+    width: 33%; /*peut-on aligner les liens à gauche autrement? */
+    gap: 15px; /*espace entre les liens*/
+}
+footer h3{
+    margin: 0;
 }
 
 
@@ -366,10 +385,6 @@ footer section div {
         flex-direction: column;
         flex-direction:column-reverse; /*inverse l'ordre des sections */
         flex-wrap: wrap;
-    }
-
-    #hebergements {
-        width: 100%;
     }
 
     .populaires {
@@ -399,18 +414,52 @@ footer section div {
     .populaires-cards .card-subtitle {
         font-size: 13px;
     }
+
     .activity-card{
         height: 270px ;
         width: 193.5px ;
     }
-    footer section div {
-        width: 80%; /* A REVOIR */
+
+    footer section div{
+        width: 100%; /* les liens occupent toute la largeur */
     }
 }
 
+
 /* Small devices (phones, less than 768px) */
 @media (max-width: 767.98px) {
-    /* ... */
+    nav{
+        flex-direction: column;
+    }
+    header img {
+        height: 19px;
+        margin: 30px;
+    }
+
+    nav ul {
+        padding: 0; /* resolution espace entre les menus */
+        gap: 0;
+        justify-content: space-around;
+    }
+
+    nav ul li {
+        border-top: 0;
+        border-bottom: 2px solid transparent; /*résolution décalage du texte*/
+        padding-bottom: 14px;
+  
+    }
+
+    nav ul li:hover {
+        border-top: 0;
+        border-bottom: 2px solid var(--main-color);
+    }
+    
+    .main-container {
+        margin: 0;
+    }
+    .search{
+        margin: 20px 20px 0 20px;
+    }
     .search-button{
         display: none;
     }
@@ -421,27 +470,47 @@ footer section div {
     .hebergements-and-populaires {
         flex-direction:column; /* ré-réinverse l'ordre...*/
     }
+
     #hebergements-cards {
         flex-direction: column;
-        width: 100%;
-    }    
+        margin-top: 20px; /*espace // titre*/
+        margin-bottom: 20px; /*espace // afficher plus*/
+        gap: 15px;
+    }
+
+
+
+
+
+    .hebergements-cards .card {
+        width: 100%; /* Ne fonctionne toujours pas... */
+    }
+
+
+
+
+
+
     .populaires-cards {
         flex-direction: column;
     }
-    .populaires-cards a {
+    .populaires-cards a{
         width: 100%;
         /*size mobile populaire card*/
         /* width: 335px;
         height: 146px; */
     }
-
+    .hebergements-cards .card{
+        width: 335px; /* Pourquoi les % n'ont aucun effet?? */
+        /* height: 146px; */
+    }
     .activity-card{
         height: 200px ;
         width: 315px ;
     }
-
-    footer{
+    footer section{
         flex-direction: column;
+        margin: 0;
+        gap: 50px;
     }
-
 }

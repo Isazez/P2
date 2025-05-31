@@ -36,28 +36,33 @@
 
                 <div>
                     <h1>Trouvez votre hébergement pour des vacances de rêve</h1>
-                        <p>En plein centre-ville ou en pleine nature</p>
+                    <p>En plein centre-ville ou en pleine nature</p>
                 </div>
 
                 <form method="get" action="/action_page.php" class="search-localisation"> <!--attribut action à remplacer par page définitive-->
-                    <div class="map-icon"><i class="fa-solid fa-location-dot" style="font-size:20px;color:black;"></i></div> 
+                    <div class="map-icon"><i class="fa-solid fa-location-dot"></i></div> 
                     <!-- ref icone fontawesome non précisée dans maquette, nom déduit, style ajouté -> pourquoi ne fonctionne pas dans le CSS directement ? -->
                     <input type="search" name="search" id="localisation" placeholder="Marseille, France">
                     <div class="search-button"><p><strong>Rechercher</strong></p></div>
                     <div class="loupe"><img src="images/icones/loupe.svg" alt="loupe de rechercher"></div>
                 </form>
 
-                <div id="filters">
+                <div id="filters-container">
                     <h2>Filtres</h2> <!-- Ok si H1 et H2 sont au même niveau dans le html? -->
+                    <div class="filters">
                         <button class="btn"><i class="fa-solid fa-money-bill-wave"></i>Economique</button>
                         <button class="btn"><i class="fa-solid fa-person"></i>Familiale</button>
                         <button class="btn"><i class="fa-solid fa-heart"></i>Romantique</button> 
                         <!-- ref icone fontawesome non précisée dans maquette, nom déduit-->
                         <button class="btn"><i class="fa-solid fa-fire"></i>Nos Pépites</button>
+                    </div>
                 </div>
 
                 <div class="search-result">
-                    <img src="images/icones/info-icon.png" alt="information">
+                    <span class="fa-stack" style="vertical-align: top;">
+                        <i class="fa-regular fa-circle fa-stack-2x"></i>
+                        <i class="fa-solid fa-info fa-stack-1x"></i>
+                    </span>
                     <p>Plus de 500 logements disponibles dans cette ville</p>
                 </div>
 
@@ -143,7 +148,7 @@
                         <h2>Hébergements à Marseille</h2>
                     </div>
                     
-                    <div class="hebergements-cards">
+                    <div class="hebergements-gallery">
 
                         <a href="#">
                             <article class="card">
@@ -267,7 +272,7 @@
 
                     </div>
 
-                    <h3> Afficher plus </h3>
+                    <a href="#"><h4> Afficher plus </h4></a>
                     
                 </section>
 
@@ -276,29 +281,21 @@
             <div id="activities">
                 <h2>Activités à Marseille</h2> 
                 <div class="activities-gallery">
-                    <a href="#">
-                        <div class="activity-card">
+                    <a href="#" class="activity-card">
                             <img src="./images/activites/reno-laithienne.jpg" alt="photo du vieux port de Marseille">
                             <h3 class="card-title">Vieux Port</h3>
-                        </div>
                     </a>  
-                    <a href="#">
-                        <div class="activity-card">
+                    <a href="#" class="activity-card">
                             <img src="./images/activites/paul-hermann.jpg" alt="photo du Fort de Pomègues">
                             <h3 class="card-title">Fort de Pomègues</h3>
-                        </div>
                     </a>  
-                    <a href="#">
-                        <div class="activity-card">
+                    <a href="#" class="activity-card">
                             <img src="./images/activites/kilyan-sockalingum.jpg" alt="photo du Parc National des Calanques">
                             <h3 class="card-title">Parc National des Calanques</h3>
-                        </div>
                     </a>  
-                    <a href="#">
-                        <div class="activity-card">
+                    <a href="#" class="activity-card">
                             <img src="./images/activites/florian-wehde.jpg" alt="photo de Notre Dame de la Notre-Dame-de-la-Garde">
                             <h3 class="card-title">Notre-Dame-de-la-Garde</h3>
-                        </div>
                     </a>  
                 </div>
             </div>
@@ -310,7 +307,7 @@
         <footer>
             <section>
                 <div>
-                    <h3>À propos</h3> <!-- ok titre h3 si pas de h2 avant? -->
+                    <h3>À propos</h3> 
                     <a href="#">Fonctionnement du site</a>
                     <a href="#">Conditions générales</a>
                     <a href="#">Données et confidentialité</a>

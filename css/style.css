@@ -19,18 +19,40 @@ body {
     justify-content: center;
     align-items: center;
     margin: 0;
+    font-size: 16px;
 }
 
 a {
     color: inherit;
     text-decoration: none;
 }
-h1 { 
-    margin:0;
+h1 h2 h3 h4{
+    margin: 0;
 }
+h1, h2 { 
+    font-size: 22px;
+}
+#filters h2{
+    font-size: 18px;
+}
+h3{
+
+}
+h4{ /*Afficher plus*/
+    font-size: 18px;    
+}
+p{
+    
+}
+strong{
+    
+}
+
+
 
 .main-container {
     max-width: 1440px; /*maximum size for large desktop*/
+    min-width: 320px;
     margin: 0 50px;
     box-sizing: border-box;
 }
@@ -92,6 +114,11 @@ nav ul li:hover {
     background-color: var(--main-bg-color);
     padding: 0 20px 0 20px;
     border-radius: 15px 0 0 15px;
+
+}
+.map-icon i {
+    font-size:20px;
+    color:black;
 }
 input#localisation {
     border: 0; /*pourquoi faut-il d'abord la remettre à 0 ? */
@@ -124,13 +151,17 @@ input#localisation::placeholder{
 
 /****** filters ***********/
 
-#filters {
+#filters-container {
     display: flex;
     flex-direction: row;
+}
+.filters{
+    display: flex;
     align-items: center;
     flex-wrap: wrap;
-    /* height: 50px; conditionner la hauteur posait pb avec le gap des elements de search et search-result se juxtaposait aux filtres à la reduction de l'ecran*/ 
-    gap: 15px;
+    /* height: 50px; conditionner la hauteur posait pb 
+    avec le gap des elements de search et search-result 
+    se juxtaposait aux filtres à la reduction de l'ecran*/ 
 }
 .btn {
     display: flex;
@@ -138,6 +169,7 @@ input#localisation::placeholder{
     align-items: center;
     flex-wrap: nowrap;
     gap: 10px;
+    margin-left: 15px;
     background-color: white;
     border: 2px solid #D9D9D9;
     border-radius: 20px;
@@ -166,10 +198,8 @@ input#localisation::placeholder{
     align-items: center;
     gap: 10px;
 }
-
-.search-result img {
-    width: 24px;
-    height: 24px;
+.fa-circle {
+    color: #D9D9D9 ;
 }
 
 /****** Cards ***********/
@@ -191,9 +221,11 @@ input#localisation::placeholder{
 }
 .card-subtitle {
     margin: 0;
+    font-size: 14px;
 }
 .card-rating {
     margin-bottom: 5px;
+    font-size: 14px;
 }
 .euro {
     font-weight: 700;
@@ -232,53 +264,32 @@ input#localisation::placeholder{
 
 /****** Hebergements ***********/
 #hebergements {
-    width: 100%;
     display: flex;
     flex-direction: column;
+    width: 66%; /*se place à coté du conteneur populaire sur la place restante*/
 }
 
-.hebergements-cards {
+.hebergements-gallery {
     display: flex;
-    justify-content: flex-start; /* !LAISSE ESPACE AUTOUR ET 2 CARDS AU LIEU 3 */
-    /* align-self: stretch; */
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-top: 30px; /*espace // titre*/
-    margin-bottom: 30px; /*espace // afficher plus*/
-    gap: 30px;
+    justify-content: space-between;
+    flex-wrap: wrap; /* IMPOSSIBLE SANS WRAP */
+    margin-bottom: 30px; /*espace avec Afficher plus*/
 }
-
-
-
-
-
-
-
-.hebergements-cards .card {
-    display: flex;
-    flex-direction: column;
-    width: 268px; /*pb Affiche 2 cards au lieu de 3 sur une ligne --> vient de taille fixe card ou conteneur? */
+.hebergements-gallery a {
+    margin-top: 30px;
+    width: 31%;
     height: 207px;
-    padding-bottom: 10px; /* +les 5 de .card --> 15 */
 }
-
-
-
-
-
-
-
-
-.hebergements-cards img {
+   /* le retour à la ligne de la card auberge de 
+    la canneberge agrandit la carte! */
+.hebergements-gallery img {
     width: 100%;
-    height: 124px; 
-    /* object-fit: cover déjà sur .card*/
+    height: 124px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
 
-.hebergements-cards .card-content {
+.hebergements-gallery .card-content {
     padding-left: 15px;
     display: flex;
     flex-direction: column;
@@ -288,7 +299,6 @@ input#localisation::placeholder{
 /****** Populaires ***********/
 .populaires {
     width: 32%;
-    min-width: 429px; /*pose pb en media queries*/
 }
 
 .populaires-cards .card {
@@ -317,26 +327,33 @@ input#localisation::placeholder{
 
 /****** Activités ***********/
 
+/* toujours pas 4 cards sur la meme ligne
+avec mon écran, seulement 3 */
+
 #activities{
     display: flex;
     flex-direction: column;
     margin-top: 35px;
+    margin-bottom: 35px;
     padding: 30px;
 }
 .activities-gallery{
     display: flex;
-    flex-direction: row;
+    justify-content: flex-start; 
     flex-wrap: wrap;
+    /* IMPOSSIBLE SANS WRAP */
+    justify-content: space-between;
     gap: 30px;
 }
 .activity-card{
     display: flex;
     flex-direction: column;
-    width: 297.5px; /* 210.33px dans les components! */
+    width: 297.5px; /* la mise d'un % fait sortir du flux*/
     height: 439px;
+    /* margin: 30px;      */
+    /* un margin fait sortir du flux s'il n'y a pas un wrap */
     border-radius: 30px;
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
-    /* reprise de la propriété filter drop-shadow sur .card */
 }
 .activity-card img{
     border-radius: 30px 30px 0 0;
@@ -353,8 +370,6 @@ input#localisation::placeholder{
 footer{
     width: 100%;
     max-width: 1440px; /*maximum size for large desktop*/;
-    margin-top: 35px;
-    /*espace conteneur activités*/
 }
 footer section{
     display: flex;
@@ -381,10 +396,24 @@ footer h3{
 /****** Media queries ***********/
 /* Medium devices (tablets, less/equal than 1024px) */
 @media (max-width: 1024px) {
+    
+    #filters-container {
+    flex-direction: column;
+}
+
+    .btn{
+        margin-left: 0px;
+        margin-right: 15px;
+    }
     .hebergements-and-populaires {
         flex-direction: column;
         flex-direction:column-reverse; /*inverse l'ordre des sections */
         flex-wrap: wrap;
+        gap: 0;
+    }
+ 
+    #hebergements{
+        width: 100%;
     }
 
     .populaires {
@@ -405,7 +434,6 @@ footer h3{
     .populaires-cards a {
         width: 30%;
     }
-
 
     .populaires-cards .card-title {
         font-size: 14px;
@@ -428,35 +456,34 @@ footer h3{
 
 /* Small devices (phones, less than 768px) */
 @media (max-width: 767.98px) {
+
+    .main-container {
+        margin: 0;
+
+    }
+    header{
+        height: auto;
+        /* padding-bottom: 30px; */
+    }
     nav{
         flex-direction: column;
+        align-items: center; 
     }
-    header img {
-        height: 19px;
-        margin: 30px;
-    }
-
     nav ul {
-        padding: 0; /* resolution espace entre les menus */
-        gap: 0;
-        justify-content: space-around;
+
     }
 
     nav ul li {
         border-top: 0;
         border-bottom: 2px solid transparent; /*résolution décalage du texte*/
         padding-bottom: 14px;
-  
     }
 
     nav ul li:hover {
         border-top: 0;
         border-bottom: 2px solid var(--main-color);
     }
-    
-    .main-container {
-        margin: 0;
-    }
+
     .search{
         margin: 20px 20px 0 20px;
     }
@@ -470,6 +497,16 @@ footer h3{
     .hebergements-and-populaires {
         flex-direction:column; /* ré-réinverse l'ordre...*/
     }
+    #hebergements{
+        background-color: white;
+    }
+    .hebergements-gallery{
+        flex-direction: column;
+    }
+    
+    .hebergements-gallery a{
+        width: 100%;;
+    }
 
     #hebergements-cards {
         flex-direction: column;
@@ -478,19 +515,11 @@ footer h3{
         gap: 15px;
     }
 
-
-
-
-
     .hebergements-cards .card {
-        width: 100%; /* Ne fonctionne toujours pas... */
+        width: 100%; 
+        /* width: 335px;  */
+        /* height: 146px; */
     }
-
-
-
-
-
-
     .populaires-cards {
         flex-direction: column;
     }
@@ -500,13 +529,10 @@ footer h3{
         /* width: 335px;
         height: 146px; */
     }
-    .hebergements-cards .card{
-        width: 335px; /* Pourquoi les % n'ont aucun effet?? */
-        /* height: 146px; */
-    }
+
     .activity-card{
         height: 200px ;
-        width: 315px ;
+        width: 100% ;
     }
     footer section{
         flex-direction: column;

@@ -181,16 +181,13 @@ input#localisation::placeholder {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    /* height: 50px; conditionner la hauteur posait pb 
-    avec le gap des elements de search et search-result 
-    se juxtaposait aux filtres à la reduction de l'ecran*/
 }
 
 .btn {
     display: flex;
     flex-direction: row;
     align-items: center;
-    flex-wrap: nowrap;
+    width: 167px;
     gap: 10px;
     margin-left: 15px;
     background-color: white;
@@ -491,7 +488,7 @@ footer h3 {
 
     .populaires {
         width: 100%;
-        margin-top: 50px;
+        margin-top: 0;
     }
 
     .populaires-cards {
@@ -501,8 +498,7 @@ footer h3 {
     }
 
     /*size tablet populaire card*/
-    /* width: 275px;
-        height: 146px; */
+    /* width: 275px; height: 146px; */
 
     .populaires-cards a {
         width: 30%;
@@ -516,14 +512,11 @@ footer h3 {
         font-size: 13px;
     }
 
+    #activities{
+        margin-top: 0;
+    }
     .activity-card {
         height: 270px;
-        width: 193.5px;
-    }
-
-    footer section div {
-        width: 100%;
-        /* les liens occupent toute la largeur */
     }
 }
 
@@ -573,6 +566,10 @@ footer h3 {
         align-items: stretch;
     }
 
+    .btn {
+        width: 162.5px;
+        margin-bottom: 20px;
+    }
     .hebergements-and-populaires {
         flex-direction: column;
         /* ré-réinverse l'ordre...*/
@@ -605,7 +602,6 @@ footer h3 {
         /* width: 335px;  */
         /* height: 146px; */
     }
-
     .populaires-cards {
         flex-direction: column;
     }
@@ -617,14 +613,22 @@ footer h3 {
         height: 146px; */
     }
 
+    .activities-gallery {
+        flex-wrap: wrap;
+        /* encore pas possible sans*/
+    }
     .activity-card {
         height: 200px;
         width: 100%;
+        margin-bottom: 15px;
     }
 
     footer section {
         flex-direction: column;
         margin: 0;
         gap: 50px;
+    }
+    footer section div{
+        width: 100%;
     }
 }

@@ -27,7 +27,10 @@ a {
     text-decoration: none;
 }
 
-h1 h2 h3 h4 {
+h1,
+h2,
+h3,
+h4 {
     margin: 0;
 }
 
@@ -104,8 +107,12 @@ nav ul li:hover {
     flex-direction: column;
     flex-wrap: wrap;
     margin-top: 20px;
-    gap: 35px;
+    /* gap: 35px; */
     /* L'espace semble plus important que sur la maquette! */
+}
+
+#search-title {
+    margin-bottom: 35px;
 }
 
 .search-localisation {
@@ -114,6 +121,7 @@ nav ul li:hover {
     flex-wrap: nowrap;
     height: 49px;
     width: 377px;
+    margin-bottom: 35px;
 }
 
 .map-icon {
@@ -175,6 +183,13 @@ input#localisation::placeholder {
 #filters-container {
     display: flex;
     flex-direction: row;
+    margin-bottom: 20px;
+}
+
+#filters-container h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .filters {
@@ -313,6 +328,10 @@ input#localisation::placeholder {
     order: 1;
 }
 
+#hebergements .card {
+    height: 225px;
+}
+
 .hebergements-gallery {
     display: flex;
     justify-content: space-between;
@@ -326,6 +345,7 @@ input#localisation::placeholder {
     margin-top: 30px;
     width: 31%;
     height: 207px;
+    margin-bottom: 30px;
 }
 
 /* le retour à la ligne de la card auberge de 
@@ -421,6 +441,8 @@ avec mon écran, seulement 3 */
 
 .activity-card h3 {
     padding: 20px 19px 20px 19px;
+    margin: 0;
+    height: 40px;
 }
 
 
@@ -467,16 +489,25 @@ footer h3 {
 
     #filters-container {
         flex-direction: column;
+        margin-bottom: 0;
+    }
+
+    #filters-container h2 {
+        display: unset;
+        justify-content: unset;
+        align-items: unset;
+        margin-bottom: 20px;
     }
 
     .btn {
         margin-left: 0px;
         margin-right: 15px;
+        margin-bottom: 20px;
     }
 
     .hebergements-and-populaires {
         flex-direction: column;
-        flex-direction: column-reverse;
+        /* flex-direction: column-reverse; */
         /*inverse l'ordre des sections */
         flex-wrap: wrap;
         gap: 0;
@@ -484,12 +515,14 @@ footer h3 {
 
     #hebergements {
         width: 100%;
+        margin-bottom: 50px;
     }
 
     .populaires {
         width: 100%;
         margin-top: 0;
     }
+
 
     .populaires-cards {
         display: flex;
@@ -512,11 +545,16 @@ footer h3 {
         font-size: 13px;
     }
 
-    #activities{
+    #activities {
         margin-top: 0;
     }
+
     .activity-card {
         height: 270px;
+    }
+
+    .activity-card img {
+        height: 178px;
     }
 }
 
@@ -568,8 +606,8 @@ footer h3 {
 
     .btn {
         width: 162.5px;
-        margin-bottom: 20px;
     }
+
     .hebergements-and-populaires {
         flex-direction: column;
         /* ré-réinverse l'ordre...*/
@@ -602,6 +640,7 @@ footer h3 {
         /* width: 335px;  */
         /* height: 146px; */
     }
+
     .populaires-cards {
         flex-direction: column;
     }
@@ -617,6 +656,7 @@ footer h3 {
         flex-wrap: wrap;
         /* encore pas possible sans*/
     }
+
     .activity-card {
         height: 200px;
         width: 100%;
@@ -628,7 +668,8 @@ footer h3 {
         margin: 0;
         gap: 50px;
     }
-    footer section div{
+
+    footer section div {
         width: 100%;
     }
 }

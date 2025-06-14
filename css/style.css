@@ -25,11 +25,15 @@ a {
     text-decoration: none;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
     margin: 0;
 }
 
-h1, h2 {
+h1,
+h2 {
     font-size: 22px;
 }
 
@@ -149,8 +153,17 @@ input#localisation::placeholder {
 .loupe {
     display: none;
     /*affiche seulement pour smartphones*/
-    height: 55px;
-    z-index: 1;
+    border-radius: 15px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    margin-left: -20px;
+    z-index: 2;
+    background-color: var(--main-color);
+    padding: 15px 16px;
+}
+
+.fa-magnifying-glass {
+    color: white;
+    font-size: 18px;
 }
 
 /****** filters ***********/
@@ -221,6 +234,7 @@ input#localisation::placeholder {
     align-items: center;
     height: 24px;
     width: 24px;
+    min-width: 24px;
 }
 
 .fa-info {
@@ -254,9 +268,11 @@ input#localisation::placeholder {
     margin-bottom: 5px;
     font-size: 14px;
 }
+
 .populaires-cards .card-rating {
     font-size: 13px;
 }
+
 .euro {
     font-weight: 700;
 }
@@ -381,7 +397,6 @@ input#localisation::placeholder {
 .activity-card {
     display: flex;
     flex-direction: column;
-    height: 439px;
     border-radius: 30px;
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
     width: 22%;
@@ -389,14 +404,14 @@ input#localisation::placeholder {
 
 .activity-card img {
     border-radius: 30px 30px 0 0;
-    height: 90%;
+    height: 380px;
     object-fit: cover;
 }
 
 .activity-card h3 {
     padding: 20px 19px 20px 19px;
     margin: 0;
-    height: 40px;
+    height: 30px;
 }
 
 
@@ -459,14 +474,16 @@ footer h3 {
     #hebergements {
         width: 100%;
         margin-bottom: 50px;
-        order : 1;
+        order: 1;
         /*inversion de l'ordre des sections */
     }
+
     .populaires {
         width: 100%;
         margin-top: 0;
-        order : 2;
+        order: 2;
     }
+
     .populaires-cards {
         display: flex;
         flex-direction: row;
@@ -476,7 +493,7 @@ footer h3 {
     .populaires-cards a {
         width: 30%;
     }
-  
+
     #activities {
         margin-top: 0;
     }
@@ -484,6 +501,11 @@ footer h3 {
     .activity-card {
         height: 270px;
     }
+
+    .activity-card img {
+        height: 69%;
+    }
+
 }
 
 
@@ -503,7 +525,7 @@ footer h3 {
         align-items: center;
     }
 
-    nav ul{
+    nav ul {
         padding: 0;
         width: 100%;
         justify-content: space-around;
@@ -515,7 +537,7 @@ footer h3 {
         flex-grow: 1;
         border-top: 0;
         /* border-bottom: 2px solid transparent; */
-        border-bottom : 2px solid var(--main-bg-color);
+        border-bottom: 2px solid var(--main-bg-color);
         padding: 0 0 14px 0;
         margin-left: 0px;
     }
@@ -525,7 +547,7 @@ footer h3 {
         border-bottom: 2px solid var(--main-color);
     }
 
-    .search-localisation{
+    .search-localisation {
         width: auto;
     }
 
@@ -542,23 +564,22 @@ footer h3 {
     }
 
     .loupe {
-        display: inline-flex;
-        align-items: stretch;
+        display: flex;
     }
 
-    .filters{
+    .filters {
         justify-content: space-between;
         gap: 15px;
     }
 
     .btn {
-        flex-grow: 1;
+        flex: 33%;
         margin-bottom: 0;
         margin-right: 0;
         font-size: 14px;
     }
 
-    .search-result{
+    .search-result {
         margin-top: 35px;
     }
 
@@ -567,12 +588,12 @@ footer h3 {
     }
 
     #herbergements.card-rating {
-    font-size: 13px;
+        font-size: 13px;
     }
 
     #hebergements {
         background-color: white;
-        order : 2;
+        order: 2;
         /* réinverse l'ordre des sections*/
         margin-bottom: 35px;
     }
@@ -586,7 +607,7 @@ footer h3 {
         width: 100%;
     }
 
-    #hebergements .card{
+    #hebergements .card {
         height: auto;
     }
 
@@ -597,9 +618,10 @@ footer h3 {
         gap: 15px;
     }
 
-    .populaire{
-        order : 1;
+    .populaire {
+        order: 1;
     }
+
     .populaires-cards {
         flex-direction: column;
     }
@@ -618,11 +640,11 @@ footer h3 {
         margin-bottom: 15px;
     }
 
-    .activity-card h3{
+    .activity-card h3 {
         display: flex;
         align-items: center;
     }
-    
+
     footer section {
         flex-direction: column;
         margin: 0;
@@ -631,5 +653,11 @@ footer h3 {
 
     footer section div {
         width: 100%;
+    }
+}
+
+@media (max-width: 340px) {
+    .btn {
+        flex: 100%;
     }
 }

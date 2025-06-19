@@ -25,15 +25,11 @@ a {
     text-decoration: none;
 }
 
-h1,
-h2,
-h3,
-h4 {
+h1, h2, h3, h4 {
     margin: 0;
 }
 
-h1,
-h2 {
+h1, h2 {
     font-size: 22px;
 }
 
@@ -45,7 +41,6 @@ h4 {
     /*Afficher plus*/
     font-size: 18px;
 }
-
 
 .main-container {
     max-width: 1440px;
@@ -78,7 +73,6 @@ nav ul {
 
 nav ul li {
     border-top: 2px solid transparent;
-    /*résolution décalage du texte*/
     padding-top: 14px;
     margin-left: 68px;
 }
@@ -441,7 +435,6 @@ footer h3 {
 }
 
 
-/* Le code ci-dessous correspond à la version responsive uniquement */
 
 /****** Media queries ***********/
 /* Medium devices (tablets, less/equal than 1024px) */
@@ -475,7 +468,7 @@ footer h3 {
         width: 100%;
         margin-bottom: 50px;
         order: 1;
-        /*inversion de l'ordre des sections */
+        /*change sections order */
     }
 
     .populaires {
@@ -594,7 +587,7 @@ footer h3 {
     #hebergements {
         background-color: white;
         order: 2;
-        /* réinverse l'ordre des sections*/
+        /* change sections order*/
         margin-bottom: 35px;
     }
 
